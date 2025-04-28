@@ -1,0 +1,30 @@
+.letter-card{
+    width: 120px;
+    height: 90px;
+    /* border: 2px solid green; */
+    box-shadow: 10px 10px green;
+    /* background: green; */
+    padding: 20px;
+    background-color: #fff8dc;
+    border-radius: 10px;
+}
+.twoLetter{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+.letter-card:hover {
+    transform: scale(1.05);
+    transition: .3s;
+  }
+  .letter-card h1 {
+    font-size: 75px;
+    text-align: center;
+    color: #ff6347;
+  }
+.letter-card span {
+    font-size: 60px;
+    margin-top: 4px;
+    color: #4682b4;
+  }

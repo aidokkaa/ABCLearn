@@ -1,0 +1,41 @@
+.containerLetters{
+    width: 100%;
+    height: 100vh;
+    /* background-image: url('https://www.bookguruonline.com/wp-content/uploads/2023/03/browse-books-1.png'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background-color 0.8s ease;
+    /* background-color: #e8f5ff; */
+    .letters{
+        width: 70%;
+        height: 50vh;
+        /* background-color: red; */
+        /* margin: 0 auto; */
+        padding: 50px;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap;
+
+    }
+}
+
+
+.bg-page-0 {
+  background-color: #fff8b5;
+}
+
+.bg-page-1 {
+  background-color: #b5e6ff;
+}
+
+.bg-page-2 {
+  background-color: #ffb5c5;
+}
+/* <div class="profile-block">
+  <h3>Профиль</h3>
+  <p class="greeting">Сәлем, Айжан!</p>
+  <p>Букв выучено: <strong>12</strong> из <strong>26</strong></p>
+  <p>Звёзд: <span class="stars">★★★★☆</span></p>
+  <button class="logout-btn">Выйти</button>
+</div> */
