@@ -8,6 +8,16 @@
     background-color: #fff8dc;
     border-radius: 10px;
 }
+.letter-card1 {
+  width: 120px;
+  height: 90px;
+  box-shadow: 10px 10px purple;
+  padding: 20px;
+  background-color: #fff8dc;
+  border: 3px solid purple;
+  border-radius: 10px;
+}
+
 .twoLetter{
     display: flex;
     align-items: center;
@@ -24,6 +34,16 @@
     color: #ff6347;
   }
 .letter-card span {
+    font-size: 60px;
+    margin-top: 4px;
+    color: #4682b4;
+  }
+  .letter-card1 h1 {
+    font-size: 75px;
+    text-align: center;
+    color: #ff6347;
+  }
+.letter-card1 span {
     font-size: 60px;
     margin-top: 4px;
     color: #4682b4;
