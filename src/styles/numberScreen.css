@@ -1,0 +1,180 @@
+.numberScreenContainer {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #e0bbff 0%, #c2e9fb 100%);
+  }
+  
+  .modalNumber {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 70%),
+      radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.5) 0%, transparent 60%),
+      radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.4) 0%, transparent 80%),
+      linear-gradient(135deg, #f6d8ff, #e6b2f7);
+    background-blend-mode: screen;
+    opacity: 0;
+    transform: scale(0.7);
+    visibility: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0.5s;
+    z-index: 1000;
+  }
+  
+  .modalNumber.open {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0s;
+  }
+  
+  .modal-body {
+    width: 50%;
+    height: 70%;
+    border-radius: 25px;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+    transition: all 0.4s ease;
+  }
+  
+  .number {
+    font-size: 170px;
+    font-weight: bold;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btns {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .btns button {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.8rem;
+    font-family: 'Comic Sans MS', 'Poppins', cursive;
+    background: linear-gradient(145deg, #e08eea, #9f5ad6);
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  }
+  
+  .btns button:hover {
+    transform: scale(1.08);
+    background: linear-gradient(145deg, #e690ff, #aa55ff);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  .btns button:active {
+    transform: scale(0.95);
+  }
+  
+
+
+  .magic-start {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #c2e9fb, #e0bbff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .fairy {
+    font-size: 10rem; /* Увеличено! */
+    animation: floatFairy 3s ease-in-out infinite;
+    z-index: 2;
+  }
+  
+  .magic-text {
+    margin-top: 1.5rem;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #3e2d59; /* Более тёмный фиолетово-серый цвет */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Лёгкая тень для читаемости */
+    animation: pulse 2s infinite;
+    z-index: 2;
+  }
+  
+  
+  .sparkles {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveStars 30s linear infinite;
+    z-index: 1;
+  }
+  
+  @keyframes floatFairy {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes moveStars {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+  }
+  
+  .magic-button {
+    padding: 1rem 2rem;
+    background: linear-gradient(145deg, #9f5ad6, #e08eea);
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .magic-button:hover {
+    transform: scale(1.05);
+    background-color: #9f5ad6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .magic-button:active {
+    transform: scale(0.95);
+  }
+  
+  .magic-start:hover .fairy {
+    transform: rotate(20deg);
+  }
+  
+  .magic-start:hover .magic-text {
+    opacity: 1;
+  }

@@ -67,6 +67,8 @@ const AlphabetGame = () => {
     ['I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'],
     ['Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
   ];
+  const totalRounds = letterGroups.length;
+
   
   
   const [currentLetterIndex,setCurrentLetterIndex]=React.useState(0);
@@ -102,27 +104,6 @@ const AlphabetGame = () => {
     setRandomLettersHistory(prev => [...prev, arrayOfRandLetters]); 
    setShowLetters(true)
   }
-//   const chooseLetter =(item)=>{
-//     if(item===letterSounds[currentLetterIndex].letter){
-//       alert('Hooray!');
-//       setCurrentLetterIndex(prevIndex=>prevIndex+1)
-//       setShowLetters(false)
-//     }else{
-//        alert("Wrong!")
-//     }
-//     const totalLettersPassed = letterGroups
-//   .slice(0, round + 1) 
-//   .reduce((sum, group) => sum + group.length, 0); 
-
-// const isLastLetterInRound = currentLetterIndex === totalLettersPassed - 1;
-
-//     if (isLastLetterInRound) {
-//       setShowRoundComplete(true);
-//       // alert('end')
-//       setRound(prev => prev + 1);
-//     }
-    
-//   }
 
 const chooseLetter = (item) => {
   const isCorrect = item === letterSounds[currentLetterIndex].letter;
@@ -210,14 +191,120 @@ const chooseLetter = (item) => {
   )
 }
 
+{/* {
+  showRoundComplete ? (
+    <div>
+      
+      {
+        round < totalRounds ? (
+          <button onClick={multiFunction}><h2>🎉 Раунд {round } завершен!</h2>🚀 Жаңа раундты бастау</button>
+        ) : (
+          <button onClick={() => {
+            setRound(0);
+            setCurrentLetterIndex(0);
+            setRandomLetters([]);
+            setRandomLettersHistory([]);
+            setShowLetters(false);
+            setshowRoundComplete(false);
+          }}>
+            🔁 Раундтар аяқталды! Қайта бастау
+          </button>
+        )
+      }
+    </div>
+  ) : null
+} */}
+
 {
-  showRoundComplete ?
-  <div>
-<h2>🎉 Раунд {round } завершен!</h2>
-<p>Супер! Переходим к следующему раунду!</p>
-<button onClick={multiFunction}>"Nachat raund</button>
-</div> :
-''
+  showRoundComplete && (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100vw',
+      height: '100vh',
+      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      zIndex: 9999,
+      color: 'white'
+    }}>
+      <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>
+        {round < totalRounds ? `🎉 Раунд ${round} аяқталды!` : '🥳 Барлық раундтар аяқталды!'}
+      </h2>
+      <p style={{ marginBottom: '2rem' }}>
+        {round < totalRounds ? 'Келесі раундқа көшейік!' : 'Бастапқыдан қайта бастайық па?'}
+      </p>
+
+      <div style={{ display: 'flex', gap: '1rem' }}>
+        {
+          round < totalRounds ? (
+            <button
+              onClick={multiFunction}
+              style={{
+                padding: '1rem 2rem',
+                fontSize: '1.2rem',
+                backgroundColor: '#4CAF50',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer'
+              }}
+            >
+              🚀 Жаңа раундты бастау
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setRound(0);
+                setCurrentLetterIndex(0);
+                setRandomLetters([]);
+                setRandomLettersHistory([]);
+                setShowLetters(false);
+                setshowRoundComplete(false);
+              }}
+              style={{
+                padding: '1rem 2rem',
+                fontSize: '1.2rem',
+                backgroundColor: '#f44336',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer'
+              }}
+            >
+              🔁 Қайта бастау
+            </button>
+          )
+        }
+        <button
+  onClick={() => {
+    // Сброс состояния игры
+    setRound(0);
+    setCurrentLetterIndex(0);
+    setRandomLetters([]);
+    setRandomLettersHistory([]);
+    setShowLetters(false);
+    setshowRoundComplete(false); // Закрываем модалку
+  }}
+  style={{
+    padding: '1rem 2rem',
+    fontSize: '1.2rem',
+    backgroundColor: '#777',
+    color: 'white',
+    border: 'none',
+    borderRadius: '8px',
+    cursor: 'pointer'
+  }}
+>
+  ❌ Шығу
+</button>
+
+      </div>
+    </div>
+  )
 }
 
 
