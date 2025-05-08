@@ -26,7 +26,6 @@ const NumberScreen = () => {
 
   return (
     <div className='numberScreenContainer'>
-   {/* <button onClick={openNumberModalPage}>Начать</button> */}
    <div className="magic-start" onClick={openNumberModalPage}>
   <div className="sparkles"></div>
   <div className="fairy">🧚</div>
