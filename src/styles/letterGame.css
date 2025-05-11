@@ -1,16 +1,19 @@
 .letterGame-cont{
  width: 100%;
  height: 100vh;
- background-image: url(https://img.freepik.com/free-vector/sky-background-pastel-paper-cut-design-vector_53876-144660.jpg?t=st=1746052295~exp=1746055895~hmac=dff3fc3a70653a6792741eca135dde50ba5e81b365e9ecbfc533a390f6eb5ecd&w=1380);
+ background-image: url(https://kartinki.pics/uploads/posts/2021-07/1627195974_13-kartinkin-com-p-fon-oblaka-dlya-detei-krasivo-14.jpg);
  background-size: cover;
  background-position: center;
  background-repeat: no-repeat;
+ display: flex;
+ /* justify-content: center; */
+ align-items: center;
+ flex-direction: column;
 }
 .task-title{
  text-align: center;
  padding-top: 100px;   
  color: #1a237e;
-
  font-family: 'Baloo 2', cursive;
 }
 
@@ -35,5 +38,178 @@
   button:hover {
     transform: scale(1.05);
   }
-  
+  .feedback {
+  font-size: 2rem;
+  margin-top: 20px;
+  animation: pop 0.6s ease;
+}
+.correct {
+  color: #4caf50;
+}
+.wrong {
+  color: #f44336;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.letter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 70px;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.letter-ball {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  font-family: 'Comic Sans MS', 'Fredoka', cursive;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  animation: float 1s ease-in-out infinite;
+}
+
+
+.letter-ball:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+
+.letter-ball:hover {
+  transform: scale(1.1);
+  background-color: #ffd700;
+}
+.start-btn,
+.listen-btn {
+   font-family: 'Baloo 2', cursive;
+  background-color: #ffcc00;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+  margin-top: 60px;
+   color: #1a237e;
+}
+
+.start-btn:hover,
+.listen-btn:hover {
+  background-color: #ffe066;
+  transform: scale(1.05);
+}
+
+.start-btn:active,
+.listen-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .letter-grid {
+    grid-template-columns: repeat(3, 90px);
+    gap: 50px;
+  }
+
+  .letter-ball {
+    width: 100px;
+    height: 100px;
+    font-size: 2.2rem;
+  }
+
+  .start-btn,
+  .listen-btn,
+  button {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+
+  .task-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .letter-grid {
+    grid-template-columns: repeat(2, 80px);
+    gap: 40px;
+  }
+
+  .letter-ball {
+    width: 90px;
+    height: 90px;
+    font-size: 2rem;
+  }
+
+  .start-btn,
+  .listen-btn,
+  button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .task-title {
+    font-size: 1.8rem;
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .letter-grid {
+    grid-template-columns: repeat(2, 70px);
+    gap: 30px;
+    margin-top: 60px;
+  }
+
+  .letter-ball {
+    width: 75px;
+    height: 75px;
+    font-size: 1.6rem;
+  }
+
+  .start-btn,
+  .listen-btn,
+  button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .task-title {
+    font-size: 1.5rem;
+    padding-top: 60px;
+  }
+
+  .game-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 

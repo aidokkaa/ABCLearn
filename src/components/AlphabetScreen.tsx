@@ -7,10 +7,64 @@ import { RiStarSLine } from "react-icons/ri";
 import { IoStarSharp } from "react-icons/io5";
 import shineSound from '../assets/sounds/shineLetter.mp3'
 import cuteBoy from '../assets/cuteBoy.jpg'
+import a from '../assets/sounds/a.mp3';
+import b from '../assets/sounds/b.mp3';
+import c from '../assets/sounds/c.mp3';
+import d from '../assets/sounds/d.mp3';
+import e from '../assets/sounds/e.mp3';
+import f from '../assets/sounds/f.mp3';
+import g from '../assets/sounds/g.mp3';
+import h from '../assets/sounds/h.mp3';
+import i from '../assets/sounds/i.mp3';
+import j from '../assets/sounds/j.mp3';
+import k from '../assets/sounds/k.mp3';
+import l from '../assets/sounds/l.mp3';
+import m from '../assets/sounds/m.mp3';
+import n from '../assets/sounds/n.mp3';
+import o from '../assets/sounds/o.mp3';
+import p from '../assets/sounds/p.mp3';
+import q from '../assets/sounds/q.mp3';
+import r from '../assets/sounds/r.mp3';
+import s from '../assets/sounds/s.mp3';
+import t from '../assets/sounds/t.mp3';
+import u from '../assets/sounds/u.mp3';
+import v from '../assets/sounds/v.mp3';
+import w from '../assets/sounds/w.mp3';
+import x from '../assets/sounds/x.mp3';
+import y from '../assets/sounds/y.mp3';
+import z from '../assets/sounds/z.mp3';
 const AlphabetScreen = () => {
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const letters = [
+  { letter: 'A', sound: a },
+  { letter: 'B', sound: b },
+  { letter: 'C', sound: c },
+  { letter: 'D', sound: d },
+  { letter: 'E', sound: e },
+  { letter: 'F', sound: f },
+  { letter: 'G', sound: g },
+  { letter: 'H', sound: h },
+  { letter: 'I', sound: i },
+  { letter: 'J', sound: j },
+  { letter: 'K', sound: k },
+  { letter: 'L', sound: l },
+  { letter: 'M', sound: m },
+  { letter: 'N', sound: n },
+  { letter: 'O', sound: o },
+  { letter: 'P', sound: p },
+  { letter: 'Q', sound: q },
+  { letter: 'R', sound: r },
+  { letter: 'S', sound: s },
+  { letter: 'T', sound: t },
+  { letter: 'U', sound: u },
+  { letter: 'V', sound: v },
+  { letter: 'W', sound: w },
+  { letter: 'X', sound: x },
+  { letter: 'Y', sound: y },
+  { letter: 'Z', sound: z },
+];
+
   const chunkSize = 8;
-  const letterChunks = [];
+  const letterChunks:string[] = [];
   for(let i = 0;i<letters.length;i+=chunkSize){
     letterChunks.push(letters.slice(i,i+chunkSize))
   }
@@ -59,7 +113,7 @@ const AlphabetScreen = () => {
               return newStars;
             })
             
-            console.log('все!');
+
         
             setFinishPage(true)
             successSound.play();
@@ -96,7 +150,7 @@ const AlphabetScreen = () => {
     
      React.useEffect(() => {
       if (finishPage) {
-        const duration = 2 * 1000; // 2 секунды
+        const duration = 2 * 1000; 
         const end = Date.now() + duration;
     
         (function frame() {
@@ -121,6 +175,10 @@ const AlphabetScreen = () => {
     }, [finishPage]);
      return (
       <div className={`containerLetters ${bgClasses[pageIndex]}`}> 
+      <div className='lts'>
+        <h1 className='lettersTitle'>Әріптерді басып көр! Тыңда, қайтала, жатта!</h1>
+        <img src={cuteBoy} alt="" />
+        </div>
        <div className="letters">
        {
         letterChunks[pageIndex].map((letter,index)=>(
@@ -130,9 +188,14 @@ const AlphabetScreen = () => {
         ))
       }  
        </div>
-       <p>📖 Страница {pageIndex + 1} из {letterChunks.length}</p>
-       <div onClick={nextPage}>Next</div>
-       <div onClick={prevPage}>Prev</div>
+       <div className="btns">
+  <div onClick={prevPage} className="btn">Prev</div>
+  <div onClick={nextPage} className="btn">Next</div>
+</div>
+     <p className="page-info">📖 Бұл {pageIndex + 1}-бет. Барлығы {letterChunks.length} бет</p>
+
+  
+
        {
         finishPage && (
           <>

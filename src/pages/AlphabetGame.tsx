@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/letterGame.css'
 import intro from '../assets/sounds/intro.mp3';
+import { Link } from 'react-router-dom';
 import a from '../assets/sounds/a.mp3';
 import b from '../assets/sounds/b.mp3';
 import c from '../assets/sounds/c.mp3';
@@ -68,7 +69,7 @@ const AlphabetGame = () => {
     ['Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
   ];
   const totalRounds = letterGroups.length;
-
+ const ballColors = ['#FF6B6B', '#6BCB77', '#4D96FF', '#FFD93D', '#FF6EC7', '#A66DD4'];
   
   
   const [currentLetterIndex,setCurrentLetterIndex]=React.useState(0);
@@ -78,7 +79,8 @@ const AlphabetGame = () => {
   const [round,setRound]=React.useState(0)
   const [showRoundComplete,setshowRoundComplete]=React.useState(false)
   const [randomLettersHistory,setRandomLettersHistory]=React.useState([])
- 
+  const [feedback, setFeedback] = React.useState(null); // 'correct' | 'wrong' | null
+
   
   const playIntro = () => {
     const audio = new Audio(intro);
@@ -109,7 +111,8 @@ const chooseLetter = (item) => {
   const isCorrect = item === letterSounds[currentLetterIndex].letter;
 
   if (isCorrect) {
-    alert('Hooray!');
+     setFeedback('correct');
+     setTimeout(() => setFeedback(null), 2000);
     setCurrentLetterIndex(prevIndex => prevIndex + 1);
     setShowLetters(false)
     const totalLettersPassed = letterGroups
@@ -127,7 +130,8 @@ const chooseLetter = (item) => {
 
     
   } else {
-    alert("Wrong!");
+     setFeedback('wrong');
+  setTimeout(() => setFeedback(null), 2000);
   }
 };
 
@@ -140,12 +144,12 @@ const chooseLetter = (item) => {
 
   return (
     <div className='letterGame-cont'>
+       <Link className='link' to='/home'><div>🏠</div></Link>
       <h1 className="task-title">👂 Құлақ түр, әріпті тыңда да, дұрысын таңда!</h1>
 
       <div className="game-buttons">
-        <button className="speak-btn" onClick={playIntro}>🔊 Тапсырманы тыңдау</button>
-        {/* <button className="speak-btn" onClick={listenLetter}>{currentLetterIndex==0? '🔊 Әріпті тыңдау' :  'келеси арип' }</button> */}
-        <button className="speak-btn" onClick={() => {
+        <button className="start-btn" onClick={playIntro}>🔊 Тапсырманы тыңдау</button>
+        <button className="start-btn" onClick={() => {
   if (currentLetterIndex === 0) {
     listenLetter();
   } else {
@@ -161,21 +165,36 @@ const chooseLetter = (item) => {
             <button className="start-btn" onClick={startNextLetter}>🚀 Бастау</button>
           )
         }
-      <button onClick={()=>letterSounds[currentLetterIndex].audio.play()}>Aripti tindau</button>
+     {currentLetterIndex>0 &&
+      <button className='start-btn' onClick={()=>letterSounds[currentLetterIndex].audio.play()}>Aripti tindau</button>}
       </div>
-      {
-        showLetters && (
-         randomLetters.map(item=>(
-          <>
-          <h1 onClick={()=>chooseLetter(item)}>{item}</h1>
-          </>
+      {feedback === 'correct' && (
+  <div className="feedback correct">✅ Дұрыс!</div>
+)}
+{feedback === 'wrong' && (
+  <div className="feedback wrong">❌ Қате! Қайтадан көр!</div>
+)}
+{showLetters && (
+  <div className="letter-grid">
+    {randomLetters.map((item, index) => {
+      const color = ballColors[index % ballColors.length];
+      return (
+        <div
+          key={index}
+          className="letter-ball"
+          style={{ backgroundColor: color }}
+          onClick={() => chooseLetter(item)}
+        >
+          {item}
+        </div>
+      );
+    })}
+  </div>
+)}
 
-         ))
-        )
-      }
 {
   currentLetterIndex>0 && (
-    <button onClick={() => {
+    <button className='start-btn' onClick={() => {
       setCurrentLetterIndex(prevIndex => {
         if (prevIndex > 0) {
           const newIndex = prevIndex - 1;
@@ -186,7 +205,7 @@ const chooseLetter = (item) => {
         }
         return prevIndex;
       });
-    }}>Prev</button>
+    }}>Артқа</button>
     
   )
 }
@@ -281,13 +300,12 @@ const chooseLetter = (item) => {
         }
         <button
   onClick={() => {
-    // Сброс состояния игры
     setRound(0);
     setCurrentLetterIndex(0);
     setRandomLetters([]);
     setRandomLettersHistory([]);
     setShowLetters(false);
-    setshowRoundComplete(false); // Закрываем модалку
+    setshowRoundComplete(false); 
   }}
   style={{
     padding: '1rem 2rem',

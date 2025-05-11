@@ -11,7 +11,9 @@
     right: 0;
     bottom: 0;
     display: flex;
+    gap: 30px;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 70%),
       radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.5) 0%, transparent 60%),
@@ -89,9 +91,17 @@
   .btns button:active {
     transform: scale(0.95);
   }
-  
+  .btns button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
 
 
+.link{
+  font-size: 40px;
+  text-decoration: none;
+  cursor: pointer;
+}
   .magic-start {
     position: relative;
     width: 100%;
@@ -106,7 +116,7 @@
   }
   
   .fairy {
-    font-size: 10rem; /* Увеличено! */
+    font-size: 10rem; 
     animation: floatFairy 3s ease-in-out infinite;
     z-index: 2;
   }
@@ -115,8 +125,9 @@
     margin-top: 1.5rem;
     font-size: 2.8rem;
     font-weight: bold;
-    color: #3e2d59; /* Более тёмный фиолетово-серый цвет */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Лёгкая тень для читаемости */
+      font-family: 'Comic Sans MS', 'Fredoka', cursive;
+    color: #3e2d59;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); 
     animation: pulse 2s infinite;
     z-index: 2;
   }
@@ -178,3 +189,115 @@
   .magic-start:hover .magic-text {
     opacity: 1;
   }
+
+
+@media (max-width: 1024px) {
+  .modal-body {
+    width: 80%;
+    height: 70%;
+    gap: 40px;
+  }
+
+  .number {
+    font-size: 120px;
+  }
+
+  .btns {
+    gap: 3rem;
+  }
+
+  .btns button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
+
+  .magic-text {
+    font-size: 2.2rem;
+  }
+
+  .magic-button {
+    font-size: 1.3rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .link {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-body {
+    width: 90%;
+    height: 60%;
+    gap: 30px;
+  }
+
+  .number {
+    font-size: 100px;
+  }
+
+  .btns {
+    gap: 2rem;
+    flex-direction: column;
+  }
+
+  .btns button {
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+
+  .magic-text {
+    font-size: 2rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .fairy {
+    font-size: 7rem;
+  }
+
+  .magic-button {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .link {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-body {
+    width: 95%;
+    height: auto;
+    gap: 20px;
+    padding: 1rem;
+  }
+
+  .number {
+    font-size: 70px;
+  }
+
+  .btns button {
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  .fairy {
+    font-size: 5rem;
+  }
+
+  .magic-text {
+    font-size: 1.7rem;
+  }
+
+  .magic-button {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .link {
+    font-size: 22px;
+  }
+}
