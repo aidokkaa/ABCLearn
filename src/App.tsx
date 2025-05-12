@@ -16,6 +16,7 @@ function App() {
       <Route path='/letterGame' element={<AlphabetGame/>}></Route>
       <Route path='/numberScreen' element={<NumberScreen/>}></Route>
       <Route path='/numberPractice' element={<NumberPracticePage/>}></Route>
+      <Route path='*' element={<h2>Page not found</h2>} />
     </Routes>
  
     </>

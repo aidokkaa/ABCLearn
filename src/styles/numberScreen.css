@@ -62,12 +62,12 @@
     display: flex;
     justify-content: center;
     gap: 5rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     flex-wrap: wrap;
   }
   
   .btns button {
-    padding: 1.2rem 2.5rem;
+    padding: 1.1rem 2.1rem;
     font-size: 1.1rem;
     font-family: 'Comic Sans MS', 'Poppins', cursive;
     background: linear-gradient(145deg, #e08eea, #9f5ad6);
