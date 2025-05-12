@@ -12,7 +12,9 @@ import seven from '../assets/sounds/seven.mp3'
 import eight from '../assets/sounds/eight.mp3'
 import nine from '../assets/sounds/nine.mp3'
 import ten from '../assets/sounds/ten.mp3'
-const NumberScreen = () => {
+import { useSound } from '../SoundText'
+const NumberScreen:React.FC = () => {
+  const { isSoundOn, toggleSound } = useSound();
   const [openModal,setOpenModal]=React.useState(false);
   const [currentNumber,setCurrentNumber]=React.useState(0);
   type numsData={
@@ -39,7 +41,12 @@ const NumberScreen = () => {
 
   return (
     <div className='numberScreenContainer'>
-      <Link className='link' to='/home'><div style={{textAlign:'center'}}>🏠</div></Link>
+      <div style={{display:'flex',gap:'20px'}}>
+        <Link className='link' to='/home'><div style={{textAlign:'center'}}>🏠</div></Link>
+        <button className="header-btn" onClick={toggleSound}>
+          {isSoundOn ? '🔊' : '🔇'}
+        </button>
+      </div>
    <div className="magic-start" onClick={openNumberModalPage}>
   <div className="sparkles"></div>
   <div className="fairy">🧚</div>
@@ -54,7 +61,32 @@ const NumberScreen = () => {
 </Link>
       <div  style={{ backgroundImage: `url(${numbersData[currentNumber].backgroundUrl})` }} className="modal-body"> 
         
-          <div className="btns"><button onClick={()=>new Audio(numbersData[currentNumber].audio).play()}>Бастау</button></div>
+          <div className="btns">
+           {
+  currentNumber > 0 ? (
+    <button
+      onClick={() => {
+        if (isSoundOn) {
+          new Audio(numbersData[currentNumber].audio).play();
+        }
+      }}
+    >
+      Санды тыңдау
+    </button>
+  ) : (
+    <button
+      onClick={() => {
+        if (isSoundOn) {
+          new Audio(numbersData[currentNumber].audio).play();
+        }
+      }}
+    >
+      Бастау
+    </button>
+  )
+}
+
+          </div>
           
       <div
   style={{ color: numbersData[currentNumber].color }}

@@ -10,7 +10,7 @@
 }
     .letters{
         width: 70%;
-        height: 50vh;
+        height: 45vh;
         margin-top: 50px;
         /* background-color: red; */
         /* margin: 0 auto; */
@@ -28,7 +28,7 @@
 .lettersTitle{
   font-size: 2.5rem;
   text-align: center;
-  color: #333;
+  color: green;
   margin-top: 30px;
   margin-bottom: 20px;
   font-family: 'Comic Sans MS', 'Segoe UI', cursive;
@@ -41,16 +41,17 @@
   }
 
 .bg-page-0 {
- background: linear-gradient(to bottom, #ffffff, #a259ff);
+  background: linear-gradient(to bottom, #fff9c4, #ffe082);
 }
 
 .bg-page-1 {
-  background-color: #b5e6ff;
+  background-color: #b3e5fc; 
 }
 
 .bg-page-2 {
-  background-color: #ffb5c5;
+  background-color: #ffd5b5; 
 }
+
 @keyframes flashCenter {
   0% {
     transform: scale(1) translateY(0);
@@ -58,17 +59,20 @@
   }
   50% {
     transform: scale(6) translate(100px) ; 
-    color: gold;
+    color: #ff9900;
   }
   100% {
     transform: scale(6) translateY(0);
-    color: gold;
+    color: #ff9900;
   }
+}
+.stars{
+  display: flex;
 }
 .star {
   width: 100px;
-  font-size: 50px;
-  color: red;
+  font-size: 70px;
+  color: #ff9900;
   transition: transform 0.3s, color 0.3s;
 }
 
@@ -78,32 +82,40 @@
 .btns {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin: 30px 0;
+  gap: 30px;
+  margin: 5px 0 15px 0;
 }
 
 .btn {
-  background-color: #fff;
-  border: 2px solid #555;
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  font-weight: bold;
+ font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+  font-size: 20px;
+  padding: 16px 32px;
+  background-color: #fff8e1;
+  color: green;
+  border: 3px solid #ffb300;
+  border-radius: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.05);
+  background-color: #ffe082;
+  border-color: #ffa000;
+  transform: translateY(-2px) scale(1.05);
+}
+
+.btn:active {
+  transform: scale(0.95);
+  background-color: #ffd54f;
+  border-color: #ff8f00;
 }
 .page-info {
   font-size: 1.6rem;
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
-  color: #2d2d2d;
+  color: green;
   background-color: #fff9e6;
   padding: 12px 24px;
   border-radius: 16px;
@@ -118,10 +130,176 @@
   transform: scale(1.05);
 }
 
-/* <div class="profile-block">
-  <h3>Профиль</h3>
-  <p class="greeting">Сәлем, Айжан!</p>
-  <p>Букв выучено: <strong>12</strong> из <strong>26</strong></p>
-  <p>Звёзд: <span class="stars">★★★★☆</span></p>
-  <button class="logout-btn">Выйти</button>
-</div> */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 90%;
+}
+
+.modalContent h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #4caf50;
+}
+
+.modalContent button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modalContent button:hover {
+  background-color: #43a047;
+}
+
+@media (max-width: 768px) {
+  .letters {
+    width: 90%;
+    height: auto;
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .lettersTitle {
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+  }
+
+  .letter-card, .letter-card1 {
+    width: 100px;
+    height: 75px;
+    padding: 15px;
+    font-size: 60px;
+  }
+
+  .letter-card h1, .letter-card1 h1 {
+    font-size: 60px;
+  }
+
+  .letter-card span, .letter-card1 span {
+    font-size: 45px;
+  }
+
+  .btn {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  .modalContent {
+    padding: 20px 30px;
+    width: 80%;
+  }
+
+  .modalContent h2 {
+    font-size: 24px;
+  }
+
+  .modalContent button {
+    font-size: 14px;
+  }
+
+  .star {
+    font-size: 50px;
+  }
+
+  .page-info {
+    font-size: 1.4rem;
+    padding: 10px 20px;
+  }
+
+  .containerLetters {
+    padding: 30px 0;
+  }
+
+  .twoLetter {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .letters {
+    width: 95%;
+    height: auto;
+    gap: 10px;
+  }
+
+  .lettersTitle {
+    font-size: 1.8rem;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+  }
+
+  .letter-card, .letter-card1 {
+    width: 90px;
+    height: 70px;
+    padding: 10px;
+    font-size: 50px;
+  }
+
+  .letter-card h1, .letter-card1 h1 {
+    font-size: 50px;
+  }
+
+  .letter-card span, .letter-card1 span {
+    font-size: 40px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .modalContent {
+    padding: 15px 25px;
+    width: 90%;
+  }
+
+  .modalContent h2 {
+    font-size: 22px;
+  }
+
+  .modalContent button {
+    font-size: 12px;
+  }
+
+  .star {
+    font-size: 45px;
+  }
+
+  .page-info {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+  }
+
+  .containerLetters {
+    padding: 20px 0;
+  }
+
+  .twoLetter {
+    flex-direction: column;
+    margin-top: 5px;
+  }
+}

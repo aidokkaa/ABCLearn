@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/letterGame.css'
-import intro from '../assets/sounds/intro.mp3';
+import listenletter from '../assets/sounds/listenletter.mp3';
+import { useSound } from '../SoundText';
 import { Link } from 'react-router-dom';
 import a from '../assets/sounds/a.mp3';
 import b from '../assets/sounds/b.mp3';
@@ -32,7 +33,6 @@ import z from '../assets/sounds/z.mp3';
 
 
 const AlphabetGame = () => {
-  const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
   
   const letterSounds = [
     { audio: new Audio(a), letter: 'A' },
@@ -63,51 +63,60 @@ const AlphabetGame = () => {
     { audio: new Audio(z), letter: 'Z' },
   ];
   
-  const letterGroups = [
+  const letterGroups:string[][] = [
     ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
     ['I', 'J', 'K', 'L', 'M', 'N', 'O', 'P'],
     ['Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
   ];
   const totalRounds = letterGroups.length;
- const ballColors = ['#FF6B6B', '#6BCB77', '#4D96FF', '#FFD93D', '#FF6EC7', '#A66DD4'];
+ const ballColors:string[]= ['#FF6B6B', '#6BCB77', '#4D96FF', '#FFD93D', '#FF6EC7', '#A66DD4'];
   
   
-  const [currentLetterIndex,setCurrentLetterIndex]=React.useState(0);
-  const [currentLetters,setCurrentLetters]=React.useState();
-  const [randomLetters,setRandomLetters]=React.useState([])
-  const [showLetters,setShowLetters]=React.useState(false);
-  const [round,setRound]=React.useState(0)
-  const [showRoundComplete,setshowRoundComplete]=React.useState(false)
-  const [randomLettersHistory,setRandomLettersHistory]=React.useState([])
-  const [feedback, setFeedback] = React.useState(null); // 'correct' | 'wrong' | null
+const [currentLetterIndex, setCurrentLetterIndex] = React.useState<number>(0);
+const [randomLetters, setRandomLetters] = React.useState<string[]>([]);
+const [showLetters, setShowLetters] = React.useState<boolean>(false);
+const [round, setRound] = React.useState<number>(0);
+const [showRoundComplete, setShowRoundComplete] = React.useState<boolean>(false);
+const [randomLettersHistory, setRandomLettersHistory] = React.useState<string[][]>([]);
+const [feedback, setFeedback] = React.useState<null | string>(null);
 
-  
-  const playIntro = () => {
-    const audio = new Audio(intro);
-    audio.play();
-  };
-  const listenLetter = ()=>{
-   letterSounds[currentLetterIndex].audio.play()
-  }
-  const shuffleArray = (array) => {
-    return array.sort(() => Math.random() - 0.5);
-  };
-  
-  const startNextLetter = ()=>{
-    const heardLetter = letterSounds[currentLetterIndex].letter;
-    const randomSet = new Set();
-    randomSet.add(heardLetter);
-    while(randomSet.size<3){
-      const randomLetter = letterGroups[round][Math.floor(Math.random() * letterGroups[round].length)];
-      randomSet.add(randomLetter)
-    }
-    const arrayOfRandLetters = Array.from(randomSet);
-    setRandomLetters(shuffleArray(arrayOfRandLetters))
-    setRandomLettersHistory(prev => [...prev, arrayOfRandLetters]); 
-   setShowLetters(true)
+const playIntro = () => {
+  if (!isSoundOn) return;
+  const audio = new Audio(listenletter)
+  audio.play();
+};
+const handlePlay = () => {
+  if (!isSoundOn) return;
+  letterSounds[currentLetterIndex].audio.play();
+};
+const listenLetter = () => {
+  if (!isSoundOn) return;
+  letterSounds[currentLetterIndex].audio.play();
+};
+ const shuffleArray = <T,>(array: T[]): T[] => {
+  return array.sort(() => Math.random() - 0.5);
+};
+
+const startNextLetter = (): void => {
+  const heardLetter: string = letterSounds[currentLetterIndex].letter;
+
+  const randomSet: Set<string> = new Set<string>();
+  randomSet.add(heardLetter);
+
+  while (randomSet.size < 3) {
+    const group: string[] = letterGroups[round];
+    const randomLetter: string = group[Math.floor(Math.random() * group.length)];
+    randomSet.add(randomLetter);
   }
 
-const chooseLetter = (item) => {
+  const arrayOfRandLetters: string[] = Array.from(randomSet);
+  setRandomLetters(shuffleArray(arrayOfRandLetters));
+  setRandomLettersHistory((prev: string[][]) => [...prev, arrayOfRandLetters]);
+  setShowLetters(true);
+};
+
+
+const chooseLetter = (item:string) => {
   const isCorrect = item === letterSounds[currentLetterIndex].letter;
 
   if (isCorrect) {
@@ -135,17 +144,24 @@ const chooseLetter = (item) => {
   }
 };
 
-  const multiFunction=()=>{
-    setshowRoundComplete(false)
-    listenLetter()
-    startNextLetter(); 
+const multiFunction = (): void => {
+  setshowRoundComplete(false);
+    if (isSoundOn) {
+    listenLetter();
   }
-  
+  startNextLetter();
+};
+const { isSoundOn, toggleSound } = useSound();
 
   return (
     <div className='letterGame-cont'>
-       <Link className='link' to='/home'><div>🏠</div></Link>
-      <h1 className="task-title">👂 Құлақ түр, әріпті тыңда да, дұрысын таңда!</h1>
+     <div style={{display:'flex',gap:'30px'}}>
+        <Link className='link' to='/home'><div>🏠</div></Link>
+         <button className="header-btn" onClick={toggleSound}>
+          {isSoundOn ? '🔊' : '🔇'}
+        </button>
+     </div>
+      <h1 className="task-title">👂 Әріпті тыңда да, дұрысын таңда!</h1>
 
       <div className="game-buttons">
         <button className="start-btn" onClick={playIntro}>🔊 Тапсырманы тыңдау</button>
@@ -166,7 +182,7 @@ const chooseLetter = (item) => {
           )
         }
      {currentLetterIndex>0 &&
-      <button className='start-btn' onClick={()=>letterSounds[currentLetterIndex].audio.play()}>Aripti tindau</button>}
+      <button className='start-btn' onClick={handlePlay}>Әріпті тыңдау</button>}
       </div>
       {feedback === 'correct' && (
   <div className="feedback correct">✅ Дұрыс!</div>
@@ -209,30 +225,6 @@ const chooseLetter = (item) => {
     
   )
 }
-
-{/* {
-  showRoundComplete ? (
-    <div>
-      
-      {
-        round < totalRounds ? (
-          <button onClick={multiFunction}><h2>🎉 Раунд {round } завершен!</h2>🚀 Жаңа раундты бастау</button>
-        ) : (
-          <button onClick={() => {
-            setRound(0);
-            setCurrentLetterIndex(0);
-            setRandomLetters([]);
-            setRandomLettersHistory([]);
-            setShowLetters(false);
-            setshowRoundComplete(false);
-          }}>
-            🔁 Раундтар аяқталды! Қайта бастау
-          </button>
-        )
-      }
-    </div>
-  ) : null
-} */}
 
 {
   showRoundComplete && (

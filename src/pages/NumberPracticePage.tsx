@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/numberPractice.css'
-import dybys from '../assets/sounds/a.mp3'
 import one from '../assets/sounds/one.mp3'
 import two from '../assets/sounds/two.mp3'
 import three from '../assets/sounds/three.mp3'
@@ -13,12 +12,15 @@ import eight from '../assets/sounds/eight.mp3'
 import nine from '../assets/sounds/nine.mp3'
 import ten from '../assets/sounds/ten.mp3'
 import Numbercard from '../components/Numbercard'
+import listenNum from '../assets/sounds/listenNum.mp3'
+import { useSound } from '../SoundText'
 export type numberItem ={
   audio: string,
   number:number,
   word:string
 }
-const NumberPracticePage = () => {
+const NumberPracticePage:React.FC = () => {
+  const { isSoundOn, toggleSound } = useSound();
   const numbers:numberItem[] = [
     { audio: one, number: 1, word: 'One' },
     { audio: two, number: 2, word: 'Two' },
@@ -43,25 +45,41 @@ const NumberPracticePage = () => {
     }
     return copy;
   }
-  const startNumberPractice=()=>{
-    const audio = new Audio(dybys)
-    audio.play();
-   const shuffled:numberItem[] = shuffle(numbers);
-    setShuffledNumbers(shuffled)
-    setCurrentNumberIndex(0)
-  }
 
-  const listenNum=()=>{
-    if (shuffledNumbers.length === 0) return
-    const audio = new Audio(shuffledNumbers[currentNumberIndex].audio)
-  audio.play()
+const startNumberPractice = (): void => {
+  if (isSoundOn) {
+  try {
+    const audio = new Audio(listenNum);
+    audio.play().catch(e => {
+      console.error("Не удалось воспроизвести звук:", e);
+    });
+  } catch (e) {
+    console.error("Ошибка создания аудио:", e);
   }
+}
+
+  const shuffled: numberItem[] = shuffle(numbers);
+  setShuffledNumbers(shuffled);
+  setCurrentNumberIndex(0);
+};
+
+  const listenNum = (): void => {
+
+  if (!isSoundOn || shuffledNumbers.length === 0) return;
+
+  const audio = new Audio(shuffledNumbers[currentNumberIndex].audio);
+  audio.play();
+};
 
 
   return (
     <div className='nPracticePage'>
-      <Link className='link' to='/home'><div>🏠</div></Link>
-     
+     <div style={{display:'flex',gap:'30px'}}>
+       <Link className='link' to='/home'><div>🏠</div></Link>
+        <button className="header-btn" onClick={toggleSound}>
+          {isSoundOn ? '🔊' : '🔇'}
+        </button>
+     </div>
          <div className="nTaskTitle">
          Санды тыңда да, дұрысын таңда!
          </div>

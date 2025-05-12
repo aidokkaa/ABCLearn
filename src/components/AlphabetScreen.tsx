@@ -1,12 +1,13 @@
 import React from 'react'
 import '../styles/alphabet.css'
+import { useSound } from '../SoundText';
 import confetti from 'canvas-confetti';
 import tadaSound from '../assets/sounds/tada.mp3'
 import LetterCard from './LetterCard'
 import { RiStarSLine } from "react-icons/ri";
 import { IoStarSharp } from "react-icons/io5";
 import shineSound from '../assets/sounds/shineLetter.mp3'
-import cuteBoy from '../assets/cuteBoy.jpg'
+import { Link } from 'react-router-dom';
 import a from '../assets/sounds/a.mp3';
 import b from '../assets/sounds/b.mp3';
 import c from '../assets/sounds/c.mp3';
@@ -33,8 +34,13 @@ import w from '../assets/sounds/w.mp3';
 import x from '../assets/sounds/x.mp3';
 import y from '../assets/sounds/y.mp3';
 import z from '../assets/sounds/z.mp3';
-const AlphabetScreen = () => {
-  const letters = [
+type lettersType = {
+  letter:string,
+  sound:string
+}
+const AlphabetScreen:React.FC = () => {
+   const { isSoundOn, toggleSound } = useSound();
+  const letters:lettersType[] = [
   { letter: 'A', sound: a },
   { letter: 'B', sound: b },
   { letter: 'C', sound: c },
@@ -63,74 +69,83 @@ const AlphabetScreen = () => {
   { letter: 'Z', sound: z },
 ];
 
-  const chunkSize = 8;
-  const letterChunks:string[] = [];
-  for(let i = 0;i<letters.length;i+=chunkSize){
-    letterChunks.push(letters.slice(i,i+chunkSize))
-  }
+const chunkSize = 8;
+const letterChunks: lettersType[][] = [];
+
+for (let i = 0; i < letters.length; i += chunkSize) {
+  letterChunks.push(letters.slice(i, i + chunkSize));
+}
+
   const [pageIndex,setpageIndex]=React.useState(0);
   const [stars,setStars]=React.useState([0,0,0,0])
   const [pressedletters,setPressedLetters]=React.useState<string[]>([]);
  const [finishPage,setFinishPage]=React.useState(false);
  const starSound = new Audio(shineSound);
  const successSound = new Audio(tadaSound);
- const playStarSound = () => {
-  starSound.currentTime = 0; 
+const playStarSound = () => {
+  if (!isSoundOn) return; 
+  starSound.currentTime = 0;
   starSound.play();
-  console.log('played')
 };
-  const addLettertoArray= (letter:string)=>{
-    setPressedLetters((prevPressedLetters)=>{
-      if(!prevPressedLetters.includes(letter) && letterChunks[pageIndex].includes(letter)){
-        const newArr = prevPressedLetters.slice();
-        newArr.push(letter);
-        if(newArr.filter(letter=>letterChunks[pageIndex].includes(letter)).length===letterChunks[pageIndex].length){
-          if(pageIndex<letterChunks.length-1){
-            setpageIndex(prevInd=>prevInd+1);
-            setStars(prevStars=>{
-              const newStars = [...prevStars];
-              for(let i = 0;i<newStars.length;i++){
-                if(newStars[i]===0){
-                  newStars[i]=1;
-                  playStarSound()
-                  break;
-                }
-             
-              }
-              return newStars;
-            })
-            // playStarSound()
-          }else{
-            setStars(prevStars=>{
-              const newStars = [...prevStars];
-              for(let i = 0;i<newStars.length;i++){
-                if(newStars[i]===0){
-                  newStars[i]=1;
-                  break;
-                }
-             
-              }
-              return newStars;
-            })
-            
 
-        
-            setFinishPage(true)
-            successSound.play();
-            confetti({
-              particleCount: 150,
-              spread: 70,
-              origin: { y: 0.6 },
-            });
-          }
+const addLettertoArray = (letter: string) => {
+  setPressedLetters((prevPressedLetters) => {
+    if (
+      !prevPressedLetters.includes(letter) &&
+      letterChunks[pageIndex].some(item => item.letter === letter)
+    ) {
+      const newArr = [...prevPressedLetters, letter];
+
+      const pressedCount = newArr.filter(l =>
+        letterChunks[pageIndex].some(item => item.letter === l)
+      ).length;
+
+      if (pressedCount === letterChunks[pageIndex].length) {
+        if (pageIndex < letterChunks.length - 1) {
+          setpageIndex(prevInd => prevInd + 1);
+          setStars(prevStars => {
+            const newStars = [...prevStars];
+            for (let i = 0; i < newStars.length; i++) {
+              if (newStars[i] === 0) {
+                newStars[i] = 1;
+                playStarSound();
+                break;
+              }
+            }
+            return newStars;
+          });
+        } else {
+          setStars(prevStars => {
+            const newStars = [...prevStars];
+            for (let i = 0; i < newStars.length; i++) {
+              if (newStars[i] === 0) {
+                newStars[i] = 1;
+                break;
+              }
+            }
+            return newStars;
+          });
+          setFinishPage(true);
+
+if (isSoundOn) {
+  successSound.currentTime = 0;
+  successSound.play();
+}
+          confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+          });
         }
-        console.log(newArr)
-        return newArr;
       }
-      return prevPressedLetters;
-    });
 
-    };
+      return newArr;
+    }
+
+    return prevPressedLetters;
+  });
+};
+
     const goToBack=()=>{
       setpageIndex(0);
       setPressedLetters([]);
@@ -175,36 +190,18 @@ const AlphabetScreen = () => {
     }, [finishPage]);
      return (
       <div className={`containerLetters ${bgClasses[pageIndex]}`}> 
+   <div style={{display:'flex',gap:'30px'}}>
+        <Link className='link' to='/home'><div>🏠</div></Link>
+        <button className="header-btn" onClick={toggleSound}>
+          {isSoundOn ? '🔊' : '🔇'}
+        </button>
+   </div>
       <div className='lts'>
-        <h1 className='lettersTitle'>Әріптерді басып көр! Тыңда, қайтала, жатта!</h1>
-        <img src={cuteBoy} alt="" />
+        <h1 className='lettersTitle'>Әріптерді басып көр! Тыңда, қайтала, жатта! 👦</h1>
+      
         </div>
-       <div className="letters">
-       {
-        letterChunks[pageIndex].map((letter,index)=>(
-          <>
-          <LetterCard pressedLetters = {pressedletters} addLettertoArray = {addLettertoArray} letter= {letter}></LetterCard>
-          </>
-        ))
-      }  
-       </div>
-       <div className="btns">
-  <div onClick={prevPage} className="btn">Prev</div>
-  <div onClick={nextPage} className="btn">Next</div>
-</div>
-     <p className="page-info">📖 Бұл {pageIndex + 1}-бет. Барлығы {letterChunks.length} бет</p>
-
-  
-
-       {
-        finishPage && (
-          <>
-          <h2>Молодецц</h2>
-          <button onClick={goToBack}>Начать сначала</button>
-          </>
-        )
-       }
-{stars.map((item, i) => (
+        <div className="stars">
+  {stars.map((item, i) => (
   <div
     key={i}
     className={`star ${item === 1 ? 'active' : ''}`}
@@ -212,16 +209,42 @@ const AlphabetScreen = () => {
     {item === 0 ? <RiStarSLine /> : <IoStarSharp />}
   </div>
 ))}
+</div>
+       <div className="letters">
+       {
+        letterChunks[pageIndex].map((item,index)=>(
+          <>
+     <LetterCard 
+    key={index}
+    pressedLetters={pressedletters} 
+    addLettertoArray={addLettertoArray} 
+    letter={item.letter} 
+    sound = {item.sound}
+  />
+          </>
+        ))
+      }  
+       </div>
+           {finishPage && (
+  <div className="modalOverlay">
+    <div className="modalContent">
+      <h2>Жарайсың!🎉🎉🎉</h2>
+      <h2>Сен 🌟🌟🌟🌟 жинадың!</h2>
+      <button onClick={goToBack}>Қайта бастау</button>
+    </div>
+  </div>
+)}
 
+       <div className="btns">
+  <div onClick={prevPage} className="btn">Артқа</div>
+  <div onClick={nextPage} className="btn">Алға</div>
+</div>
+     <p className="page-info">📖 Бұл {pageIndex + 1}-бет. Барлығы {letterChunks.length} бет</p>
       </div>
     )
 
 
   }
   
-
-
-
-
 export default AlphabetScreen
 

@@ -11,10 +11,10 @@
 .letter-card1 {
   width: 120px;
   height: 90px;
-  box-shadow: 10px 10px purple;
+  box-shadow: 10px 10px green;
   padding: 20px;
   background-color: #fff8dc;
-  border: 3px solid purple;
+  border: 3px solid green;
   border-radius: 10px;
 }
 
@@ -23,6 +23,7 @@
     align-items: center;
     justify-content: space-evenly;
     margin-top: 15px;
+    cursor: pointer;
 }
 .letter-card:hover {
     transform: scale(1.05);
@@ -48,3 +49,56 @@
     margin-top: 4px;
     color: #4682b4;
   }
+
+@media (max-width: 768px) {
+  .letter-card, .letter-card1 {
+    width: 120px;
+    height: 100px;
+    padding: 15px;
+  }
+
+  .letter-card h1, .letter-card1 h1 {
+    font-size: 40px;
+  }
+
+  .letter-card span, .letter-card1 span {
+    font-size: 30px;
+  }
+
+  .twoLetter {
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .btn {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+}
+@media (max-width: 480px) {
+  .letter-card, .letter-card1 {
+    width: 90px;
+    height: 75px;
+    padding: 10px;
+  }
+
+  .letter-card h1, .letter-card1 h1 {
+    font-size: 30px;
+  }
+
+  .letter-card span, .letter-card1 span {
+    font-size: 25px;
+  }
+
+  .twoLetter {
+    flex-direction: column;
+    margin-top: 5px;
+    gap: 5px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}

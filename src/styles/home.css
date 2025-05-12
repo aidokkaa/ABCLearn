@@ -1,0 +1,155 @@
+.home{
+    min-height: 100vh;
+    width: 100%;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   background: #e8f5ff;
+ h1 {
+  text-align: center;
+  font-family: 'Baloo 2', cursive; 
+  font-size: 3rem;
+  color: blue;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+}
+
+}
+
+.homeInner{
+ height: 70vh;
+ padding: 20px;   
+ width: 75%;
+ margin: 60px auto;
+ display: flex;
+ justify-content: space-between;
+ /* align-items: center; */
+ gap: 30px;
+}
+.leftSide{
+width: 270px;
+min-height: 500px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 50px;
+}
+.hi{
+width: 100%;
+border-radius: 10px;
+ font-family: 'Baloo 2', cursive;
+  font-size: 27px;
+  color: blue;
+  /* font-weight: bold; */
+padding: 20px;
+height: 35px;
+background-color: white;
+text-align: center;
+}
+.hi2{
+  width: 100%;
+border-radius: 10px;
+ font-family: 'Baloo 2', cursive; 
+  font-size: 20px;
+  /* font-weight: bold; */
+  color: blue;
+padding: 25px;
+height: 45px;
+background-color: white;
+text-align: center;
+}
+.middle{
+width: 600px;
+padding: 50px;
+min-height: 500px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 50px;
+}
+.middleDiv {
+  width: 230px;
+  height: 210px;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.middleDiv:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); 
+}
+
+.middleText {
+  position: relative;
+  bottom: 63px;
+  font-family: 'Baloo 2', cursive; 
+  font-size: 1.4rem;
+  text-align: center;
+  color: #1a237e;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.rightSide{
+ width: 270px;
+min-height: 500px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 50px;
+}
+
+
+@media (max-width: 768px) {
+  .homeInner {
+    flex-direction: column;
+    height: auto;
+    width: 95%;
+    margin: 20px auto;
+    gap: 50px;
+    padding: 0;
+  }
+
+  .leftSide,
+  .rightSide {
+    width: 100%;
+    min-height: auto;
+    gap: 20px;
+  }
+
+  .middle {
+    width: 100%;
+    padding: 20px 0;
+    justify-content: center;
+    gap: 35px;
+  }
+
+  .middleDiv {
+    width: 90%;
+    height: 150px;
+    padding: 20px;
+  }
+
+  .middleText {
+    bottom: 55px;
+    font-size: 1.2rem;
+  }
+
+  .hi,
+  .hi2 {
+    font-size: 20px;
+    padding: 15px;
+    height: auto;
+  }
+
+  .home h1 {
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+}

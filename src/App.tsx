@@ -9,14 +9,12 @@ import NumberPracticePage from './pages/NumberPracticePage';
 import Home from './pages/Home';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-    {/* <Header></Header> */}
     <Routes>
       <Route path='/home' element={<Home/>}></Route>
-      {/* <Route path='/letters' element={<AlphabetScreen/>}></Route> */}
+      <Route path='/letters' element={<AlphabetScreen/>}></Route>
       <Route path='/letterGame' element={<AlphabetGame/>}></Route>
       <Route path='/numberScreen' element={<NumberScreen/>}></Route>
       <Route path='/numberPractice' element={<NumberPracticePage/>}></Route>
