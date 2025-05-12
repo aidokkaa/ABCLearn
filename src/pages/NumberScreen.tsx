@@ -42,7 +42,7 @@ const NumberScreen:React.FC = () => {
   return (
     <div className='numberScreenContainer'>
       <div style={{display:'flex',gap:'20px'}}>
-        <Link className='link' to='/home'><div style={{textAlign:'center'}}>🏠</div></Link>
+        <Link className='link' to='/'><div style={{textAlign:'center'}}>🏠</div></Link>
         <button className="header-btn" onClick={toggleSound}>
           {isSoundOn ? '🔊' : '🔇'}
         </button>

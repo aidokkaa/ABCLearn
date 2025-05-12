@@ -156,7 +156,7 @@ const { isSoundOn, toggleSound } = useSound();
   return (
     <div className='letterGame-cont'>
      <div style={{display:'flex',gap:'30px'}}>
-        <Link className='link' to='/home'><div>🏠</div></Link>
+        <Link className='link' to='/'><div>🏠</div></Link>
          <button className="header-btn" onClick={toggleSound}>
           {isSoundOn ? '🔊' : '🔇'}
         </button>

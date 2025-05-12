@@ -75,7 +75,7 @@ const startNumberPractice = (): void => {
   return (
     <div className='nPracticePage'>
      <div style={{display:'flex',gap:'30px'}}>
-       <Link className='link' to='/home'><div>🏠</div></Link>
+       <Link className='link' to='/'><div>🏠</div></Link>
         <button className="header-btn" onClick={toggleSound}>
           {isSoundOn ? '🔊' : '🔇'}
         </button>
