@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/LetterCard.css'
 import { useSound } from '../SoundText';
 type LetterCardProps={

@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import AlphabetScreen from './components/AlphabetScreen';
-import Header from './components/Header';
 import './App.css'
 import AlphabetGame from './pages/AlphabetGame';
 import { Routes,Route } from 'react-router-dom';

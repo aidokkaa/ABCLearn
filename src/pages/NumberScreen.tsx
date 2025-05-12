@@ -1,6 +1,5 @@
 import React from 'react'
 import '../styles/numberScreen.css'
-import tadaSound from '../assets/sounds/tada.mp3'
 import { Link } from 'react-router-dom'
 import one from '../assets/sounds/one.mp3'
 import two from '../assets/sounds/two.mp3'

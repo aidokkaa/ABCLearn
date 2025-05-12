@@ -131,7 +131,7 @@ const chooseLetter = (item:string) => {
     const isLastLetterInRound = currentLetterIndex === totalLettersPassed - 1;
 
     if (isLastLetterInRound) {
-      setshowRoundComplete(true);
+      setShowRoundComplete(true);
 
       setShowLetters(false);
       setRound(prev => prev + 1);
@@ -145,7 +145,7 @@ const chooseLetter = (item:string) => {
 };
 
 const multiFunction = (): void => {
-  setshowRoundComplete(false);
+  setShowRoundComplete(false);
     if (isSoundOn) {
     listenLetter();
   }
@@ -274,7 +274,7 @@ const { isSoundOn, toggleSound } = useSound();
                 setRandomLetters([]);
                 setRandomLettersHistory([]);
                 setShowLetters(false);
-                setshowRoundComplete(false);
+                setShowRoundComplete(false);
               }}
               style={{
                 padding: '1rem 2rem',
@@ -297,7 +297,7 @@ const { isSoundOn, toggleSound } = useSound();
     setRandomLetters([]);
     setRandomLettersHistory([]);
     setShowLetters(false);
-    setshowRoundComplete(false); 
+    setShowRoundComplete(false); 
   }}
   style={{
     padding: '1rem 2rem',

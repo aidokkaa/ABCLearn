@@ -1,6 +1,4 @@
-import React from 'react'
 import '../styles/home.css'
-import abc from '../assets/letter.png'
 import Header from '../components/Header'
 import { Link } from 'react-router-dom';
 type imgArray = {

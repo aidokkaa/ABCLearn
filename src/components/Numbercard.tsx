@@ -8,7 +8,6 @@ import { useSound } from '../SoundText';
 interface NumberCardProps {
   shuffledNumbers: numberItem[];
   itemNUm: number;
-  itemIndex: number;
   setCurrentNumberIndex: React.Dispatch<React.SetStateAction<number>>;
   currentNumberIndex: number;
   numbers: numberItem[];
@@ -17,10 +16,8 @@ interface NumberCardProps {
 const Numbercard: React.FC<NumberCardProps> = ({
   shuffledNumbers,
   itemNUm,
-  itemIndex,
   setCurrentNumberIndex,
   currentNumberIndex,
-  numbers,
 }) => {
   const [status, setStatus] = React.useState<string>('');
   const [showModal, setShowModal] = React.useState<boolean>(false);
