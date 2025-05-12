@@ -1,9 +1,7 @@
 .letter-card{
-    width: 120px;
-    height: 90px;
-    /* border: 2px solid green; */
+    width: 90px;
+    height: 80px;
     box-shadow: 10px 10px green;
-    /* background: green; */
     padding: 20px;
     background-color: #fff8dc;
     border-radius: 10px;

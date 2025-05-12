@@ -10,13 +10,12 @@
 }
     .letters{
         width: 70%;
-        height: 45vh;
+        height: 20vh;
         margin-top: 50px;
-        /* background-color: red; */
-        /* margin: 0 auto; */
-        padding: 10px;
+        padding: 15px;
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: 50px;
         flex-wrap: wrap;
 
@@ -26,7 +25,7 @@
   justify-content: center;
 }
 .lettersTitle{
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
   color: green;
   margin-top: 30px;
@@ -71,7 +70,7 @@
 }
 .star {
   width: 100px;
-  font-size: 70px;
+  font-size: 45px;
   color: #ff9900;
   transition: transform 0.3s, color 0.3s;
 }
@@ -111,7 +110,7 @@
   border-color: #ff8f00;
 }
 .page-info {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
   margin-top: 20px;

@@ -8,7 +8,7 @@
  h1 {
   text-align: center;
   font-family: 'Baloo 2', cursive; 
-  font-size: 3rem;
+  font-size: 2rem;
   color: blue;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-top: 40px;
@@ -17,9 +17,9 @@
 }
 
 .homeInner{
- height: 70vh;
+ min-height: 70vh;
  padding: 20px;   
- width: 75%;
+ width: 90%;
  margin: 60px auto;
  display: flex;
  justify-content: space-between;
@@ -35,14 +35,14 @@ align-items: center;
 gap: 50px;
 }
 .hi{
-width: 100%;
+width: 90%;
 border-radius: 10px;
  font-family: 'Baloo 2', cursive;
-  font-size: 27px;
+  font-size: 20px;
   color: blue;
   /* font-weight: bold; */
 padding: 20px;
-height: 35px;
+height: 30px;
 background-color: white;
 text-align: center;
 }
@@ -50,16 +50,16 @@ text-align: center;
   width: 100%;
 border-radius: 10px;
  font-family: 'Baloo 2', cursive; 
-  font-size: 20px;
+  font-size: 18px;
   /* font-weight: bold; */
   color: blue;
-padding: 25px;
+padding: 20px;
 height: 45px;
 background-color: white;
 text-align: center;
 }
 .middle{
-width: 600px;
+width: 800px;
 padding: 50px;
 min-height: 500px;
 display: flex;
@@ -69,8 +69,8 @@ flex-wrap: wrap;
 gap: 50px;
 }
 .middleDiv {
-  width: 230px;
-  height: 210px;
+  width: 170px;
+  height: 170px;
   border-radius: 20px;
   background-color: white;
   cursor: pointer;
@@ -89,7 +89,7 @@ gap: 50px;
   position: relative;
   bottom: 63px;
   font-family: 'Baloo 2', cursive; 
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   text-align: center;
   color: #1a237e;
   font-weight: bold;

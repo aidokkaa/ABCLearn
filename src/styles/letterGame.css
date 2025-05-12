@@ -1,6 +1,7 @@
 .letterGame-cont{
  width: 100%;
  height: 100vh;
+ padding: 20px 0;
  background-image: url(https://kartinki.pics/uploads/posts/2021-07/1627195974_13-kartinkin-com-p-fon-oblaka-dlya-detei-krasivo-14.jpg);
  background-size: cover;
  background-position: center;
@@ -12,16 +13,16 @@
 }
 .task-title{
  text-align: center;
- padding-top: 100px;   
+ padding-top: 70px;   
  color: #1a237e;
  font-family: 'Baloo 2', cursive;
+ font-size: 2rem;
 }
-
 .game-buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 40px;
+    margin-top: 0;
   }
   
   button {
@@ -109,15 +110,15 @@
    font-family: 'Baloo 2', cursive;
   background-color: #ffcc00;
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.4rem;
+  padding: 1rem 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   border-radius: 50px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition: all 0.3s ease;
   margin: 0.5rem;
-  margin-top: 60px;
+  margin-top: 40px;
    color: #1a237e;
 }
 

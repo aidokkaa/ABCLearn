@@ -68,7 +68,7 @@
   
   .btns button {
     padding: 1.2rem 2.5rem;
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     font-family: 'Comic Sans MS', 'Poppins', cursive;
     background: linear-gradient(145deg, #e08eea, #9f5ad6);
     border: none;
@@ -163,7 +163,7 @@
     padding: 1rem 2rem;
     background: linear-gradient(145deg, #9f5ad6, #e08eea);
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: bold;
     border: none;
     border-radius: 50px;
