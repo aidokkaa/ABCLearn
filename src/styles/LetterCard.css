@@ -7,8 +7,8 @@
     border-radius: 10px;
 }
 .letter-card1 {
-  width: 120px;
-  height: 90px;
+  width: 90px;
+  height: 80px;
   box-shadow: 10px 10px green;
   padding: 20px;
   background-color: #fff8dc;
@@ -28,22 +28,22 @@
     transition: .3s;
   }
   .letter-card h1 {
-    font-size: 75px;
+    font-size: 60px;
     text-align: center;
     color: #ff6347;
   }
 .letter-card span {
-    font-size: 60px;
+    font-size: 40px;
     margin-top: 4px;
     color: #4682b4;
   }
   .letter-card1 h1 {
-    font-size: 75px;
+    font-size: 60px;
     text-align: center;
     color: #ff6347;
   }
 .letter-card1 span {
-    font-size: 60px;
+    font-size: 40px;
     margin-top: 4px;
     color: #4682b4;
   }

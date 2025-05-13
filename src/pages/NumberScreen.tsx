@@ -55,7 +55,7 @@ const NumberScreen:React.FC = () => {
    {
     openModal &&
         <div className={`modalNumber ${openModal ? "open" : ""}`}>
-         <Link className='link' to="/home">
+         <Link className='link' to="/">
   🏠
 </Link>
       <div  style={{ backgroundImage: `url(${numbersData[currentNumber].backgroundUrl})` }} className="modal-body"> 
