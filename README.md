@@ -1,54 +1,46 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Kazakh Kids English Learning App 🇰🇿🇺🇸
+## 🔗 Live Demo
 
-Currently, two official plugins are available:
+Try the app live here 👉 https://abc-learn-two.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is an educational web application designed for Kazakh children to learn **English letters and numbers** in a fun and interactive way.
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🎨 Responsive and mobile-friendly design
+- 🔤 Learn English **alphabet** with visuals and sound
+- 🔢 Practice English **numbers**
+- ✅ Simple and fun **practice games**
+- 🔊 Audio support for pronunciation
+- 🌐 Built with **React** and **React Router**
+- 📦 State management via **React Context API**
+- 🌍 Multilingual support planned for future versions
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- React
+- React Router DOM
+- React Context API
+- CSS / SCSS
+- Vercel (for deployment)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📱 Responsive Design
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+This app works smoothly on both **desktop** and **mobile devices**. It’s optimized for a great experience on all screen sizes.
+
+## 📌 Future Plans
+
+- Add **multilingual support** (Kazakh, Russian, English)
+- Add more **learning modules** (colors, shapes, animals, etc.)
+- Add **user progress tracking**
+- Expand game functionality
+
+## 🛠️ How to Run Locally
+
+```bash
+git clone https://github.com/https://github.com/aidokkaa/ABCLearn.git
+cd english-learning-app
+npm install
+npm run dev
