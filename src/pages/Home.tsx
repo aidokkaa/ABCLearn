@@ -8,9 +8,9 @@ type imgArray = {
 }
 const imagesText:imgArray[]=[
   {bgImg:'https://t3.ftcdn.net/jpg/04/52/55/40/360_F_452554046_OysDdSJkAjzouEUv5E1NKvbrSmmS9FAw.jpg',text:'Әріптерді үйрену', link:'/letters'},
-  {bgImg:'https://i.ytimg.com/vi/-muJXtxciDg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD2A2a5Tknj_aI3xxFGVOLkEhxkxA',text:'Әріптер практика', link:'/letterGame'},
+  {bgImg:'https://i.ytimg.com/vi/-muJXtxciDg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD2A2a5Tknj_aI3xxFGVOLkEhxkxA',text:'Практика №=1', link:'/letterGame'},
   {bgImg:'https://gamedata.britishcouncil.org/sites/default/files/attachment/number-1.jpg',text:'Сандарды үйрену', link:'/numberScreen'},
-  {bgImg:'https://i.ytimg.com/vi/WjvXKMVkCms/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBgHFFCIiHMyZoBQt6qhoCyNJR3OQ',text:'Сандар практика', link:'/numberPractice'}
+  {bgImg:'https://i.ytimg.com/vi/WjvXKMVkCms/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBgHFFCIiHMyZoBQt6qhoCyNJR3OQ',text:'Практика №=2', link:'/numberPractice'}
 ]
 const Home = () => {
   return (

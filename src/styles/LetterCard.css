@@ -76,13 +76,13 @@
 }
 @media (max-width: 480px) {
   .letter-card, .letter-card1 {
-    width: 90px;
-    height: 75px;
+    width: 65px;
+    height: 60px;
     padding: 10px;
   }
 
   .letter-card h1, .letter-card1 h1 {
-    font-size: 30px;
+    font-size: 27px;
   }
 
   .letter-card span, .letter-card1 span {
@@ -91,7 +91,7 @@
 
   .twoLetter {
     flex-direction: column;
-    margin-top: 5px;
+    margin-top: 0;
     gap: 5px;
   }
 

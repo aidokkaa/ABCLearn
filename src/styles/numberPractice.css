@@ -14,7 +14,6 @@
 .nTaskTitle{
   padding: 50px;
   height: 30px;
-  font-family: 'Comic Neue', cursive;
   font-size: 2rem;
   font-weight: bold;
   color:blue;
@@ -37,7 +36,6 @@
   justify-content: center;
   align-items: center;
   color: yellow;
-  font-family: 'Comic Neue', cursive;
   font-size: 70px;
   font-weight: bold;
   height: 100px;
@@ -51,7 +49,6 @@
   color: yellow;
   border: 5px solid yellow;
   border-radius: 20px;
-  font-family: 'Comic Neue', cursive;
   font-size: 20px;
   margin-left: 20px;
 }
@@ -212,13 +209,14 @@
     padding: 6px 14px;
   }
 }
-
-
 @media (max-width: 480px) {
   .nTaskTitle {
     font-size: 22px;
   }
-
+.nCards{
+   margin-top: 20px;
+   gap: 10px;
+}
   .nCard {
     width: 70px;
     height: 70px;

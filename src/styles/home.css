@@ -7,7 +7,6 @@
    background: #e8f5ff;
  h1 {
   text-align: center;
-  font-family: 'Baloo 2', cursive; 
   font-size: 2rem;
   color: blue;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -37,7 +36,6 @@ gap: 50px;
 .hi{
 width: 90%;
 border-radius: 10px;
- font-family: 'Baloo 2', cursive;
   font-size: 20px;
   color: blue;
   /* font-weight: bold; */
@@ -49,7 +47,6 @@ text-align: center;
 .hi2{
   width: 100%;
 border-radius: 10px;
- font-family: 'Baloo 2', cursive; 
   font-size: 18px;
   /* font-weight: bold; */
   color: blue;
@@ -60,7 +57,7 @@ text-align: center;
 }
 .middle{
 width: 800px;
-padding: 50px;
+padding: 40px;
 min-height: 500px;
 display: flex;
 justify-content: space-between;
@@ -87,8 +84,7 @@ gap: 50px;
 
 .middleText {
   position: relative;
-  bottom: 63px;
-  font-family: 'Baloo 2', cursive; 
+  bottom: 63px; 
   font-size: 1.2rem;
   text-align: center;
   color: #1a237e;
@@ -120,14 +116,14 @@ gap: 50px;
   .rightSide {
     width: 100%;
     min-height: auto;
-    gap: 20px;
+    gap: 10px;
   }
 
   .middle {
     width: 100%;
-    padding: 20px 0;
+    padding: 5px 0;
     justify-content: center;
-    gap: 35px;
+    gap: 45px;
   }
 
   .middleDiv {
@@ -137,16 +133,21 @@ gap: 50px;
   }
 
   .middleText {
-    bottom: 55px;
+    bottom: 77px;
     font-size: 1.2rem;
   }
 
-  .hi,
-  .hi2 {
+  .hi {
     font-size: 20px;
-    padding: 15px;
+    padding: 10px;
     height: auto;
   }
+    .hi2{
+     font-size: 19px;
+    padding: 10px 0;
+    height: auto;  
+    }
+
 
   .home h1 {
     font-size: 2rem;
