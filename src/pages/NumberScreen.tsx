@@ -23,12 +23,12 @@ const NumberScreen:React.FC = () => {
     color:string
   }
   const numbersData:numsData[] = [
-    {audio:one, number: 1, backgroundUrl: 'https://masterpiecer-images.s3.yandex.net/7a340a27735511eeb254d20dae950626:upscaled', color:'blue' },
+    {audio:one, number: 1, backgroundUrl: 'https://masterpiecer-images.s3.yandex.net/7a340a27735511eeb254d20dae950626:upscaled', color:'white' },
     {audio:two, number: 2, backgroundUrl: 'https://textur.gas-kvas.com/uploads/posts/2024-10/textur-gas-kvas-com-ros6-p-teksturi-multyashnie-oblaka-25.jpg', color:'white' },
     {audio: three, number: 3, backgroundUrl: 'https://img.freepik.com/free-vector/empty-beach-scene-with-coconut-trees-mountain-simple-style_1308-55959.jpg?t=st=1746405734~exp=1746409334~hmac=775d4539822404dcfd1904d27ab75e8f2245425a1cae8e2fce56002ef99ae3ee&w=1380', color:'red' },
     {audio: four, number: 4, backgroundUrl: 'https://img.freepik.com/free-vector/cityscape-night_1308-18430.jpg?t=st=1746405826~exp=1746409426~hmac=620102144f6cf59e5d795a0ce501d1964c49a04dd6904f709394fd4956367acf&w=740', color:'white' },
     {audio: five, number: 5, backgroundUrl: 'https://masterpiecer-images.s3.yandex.net/7a340a27735511eeb254d20dae950626:upscaled', color:'white' },
-    {audio:six, number: 6, backgroundUrl: 'https://img.freepik.com/free-vector/sunset-forest-with-path-sea-summer-landscape-background-pink-sky-scenery-beautiful-sunny-switzerland-day-game-environment-outdoor-illustration-flower-wild-garden-near-ocean-scene_107791-22894.jpg?t=st=1746476350~exp=1746479950~hmac=c191ceeda91600306bb098c2f8ef83d5eae7ede8449b207f186927473501e4d4&w=1380', color:'red' },
+    {audio:six, number: 6, backgroundUrl: 'https://img.freepik.com/free-vector/sunset-forest-with-path-sea-summer-landscape-background-pink-sky-scenery-beautiful-sunny-switzerland-day-game-environment-outdoor-illustration-flower-wild-garden-near-ocean-scene_107791-22894.jpg?t=st=1746476350~exp=1746479950~hmac=c191ceeda91600306bb098c2f8ef83d5eae7ede8449b207f186927473501e4d4&w=1380', color:'white' },
         {audio:seven, number: 7, backgroundUrl: 'https://textur.gas-kvas.com/uploads/posts/2024-10/textur-gas-kvas-com-ros6-p-teksturi-multyashnie-oblaka-25.jpg', color:'white' },
     {audio:eight, number: 8, backgroundUrl:  'https://masterpiecer-images.s3.yandex.net/7a340a27735511eeb254d20dae950626:upscaled', color:'blue' },
     {audio: nine, number: 9, backgroundUrl:  'https://img.freepik.com/free-vector/sunset-forest-with-path-sea-summer-landscape-background-pink-sky-scenery-beautiful-sunny-switzerland-day-game-environment-outdoor-illustration-flower-wild-garden-near-ocean-scene_107791-22894.jpg?t=st=1746476350~exp=1746479950~hmac=c191ceeda91600306bb098c2f8ef83d5eae7ede8449b207f186927473501e4d4&w=1380', color:'white'},
